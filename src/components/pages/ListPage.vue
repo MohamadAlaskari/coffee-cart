@@ -4,7 +4,7 @@
   <Promotion v-if="showPromo" @close="closedPromo()" />
   <div>
     <ul>
-      <li v-for="coffee in list" :key="coffee.name">                                                                                                              
+      <li v-for="coffee in list" :key="coffee.name">
         <h4 @dblclick="translate(coffee.name)">
           {{ coffee.isTranslated? translation[coffee.name] : coffee.name }}
           <br />
@@ -113,8 +113,10 @@ export default defineComponent({
       this.selectedCoffee = coffee;
       (this.$refs.dialog as any).showModal();
     },
-   npx jest --coverage
-
+    togglePromo(count: number) {
+      this.showPromo =  count > 0 && (count) % 3 == 0;
+      return;
+    },
     closedPromo() {
       this.showPromo = false;
     },
