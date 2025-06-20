@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.locator('[data-test="Espresso_Macchiato"]').click();
+  await page.locator('[data-test="Espresso_Macchiato"]').click();
+  await page.locator('[data-test="Espresso_Macchiato"]').click();
+  await page.getByRole('button', { name: 'Yes, of course!' }).click();
+  await page.locator('[data-test="Mocha"]').click();
+  await page.locator('[data-test="Flat_White"]').click();
+  await page.getByRole('button', { name: 'Yes, of course!' }).click();
+  await page.getByRole('heading', { name: 'Cafe Latte $' }).dblclick();
+  await page.getByRole('button', { name: 'Add one Espresso Macchiato' }).click();
+  await page.getByRole('button', { name: 'Add one (Discounted) Mocha' }).click();
+  await page.getByRole('button', { name: 'Add one Mocha' }).click();
+  await page.getByRole('link', { name: 'Cart page' }).click();
+  await page.getByRole('button', { name: 'Remove all Espresso Macchiato' }).click();
+  await page.getByRole('button', { name: 'Add one (Discounted) Mocha' }).click();
+  await page.getByRole('button', { name: 'Remove one Flat White' }).click();
+  await page.getByRole('button', { name: 'Remove all (Discounted) Mocha' }).click();
+  await page.getByRole('button', { name: 'Add one Mocha' }).click();
+  await page.getByRole('button', { name: 'Add one Mocha' }).click();
+  await page.locator('[data-test="checkout"]').click();
+  await page.getByRole('textbox', { name: 'Name' }).fill('mohamad');
+  await page.getByRole('textbox', { name: 'Email' }).click();
+  await page.getByRole('textbox', { name: 'Email' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Email' }).fill('A');
+  await page.getByRole('textbox', { name: 'Email' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Email' }).fill('mohamd@alaskaritech.com');
+  await page.getByRole('button', { name: 'Submit' }).click();
+});
